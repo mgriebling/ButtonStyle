@@ -17,7 +17,7 @@ import SwiftUI
 //
 // Cons:
 //   ❌ So customizable 😵‍💫
-struct CapsuleButtonStyle: ButtonStyle {
+struct RectButtonStyle: ButtonStyle {
 
     struct ColorScheme {
         let foregroundColor: Color
@@ -58,7 +58,7 @@ struct CapsuleButtonStyle: ButtonStyle {
         @State
         private var isHovered: Bool = false
 
-        private let shape = Capsule()
+        private let shape = RoundedRectangle(cornerRadius: 0)
 
         private var colorScheme: ColorScheme {
             if !isEnabled {
@@ -88,9 +88,9 @@ struct CapsuleButtonStyle: ButtonStyle {
     }
 }
 
-extension ButtonStyle where Self == CapsuleButtonStyle {
+extension ButtonStyle where Self == RectButtonStyle {
     static var primary: Self {
-        CapsuleButtonStyle(
+        RectButtonStyle(
             enabledColorScheme: .init(
                 foregroundColor: .primaryEnabledForeground,
                 backgroundColor: .primaryEnabledBackground,
@@ -115,7 +115,7 @@ extension ButtonStyle where Self == CapsuleButtonStyle {
     }
 
     static var secondary: Self {
-        CapsuleButtonStyle(
+        RectButtonStyle(
             enabledColorScheme: .init(
                 foregroundColor: .secondaryEnabledForeground,
                 backgroundColor: .secondaryEnabledBackground,
@@ -142,7 +142,7 @@ extension ButtonStyle where Self == CapsuleButtonStyle {
     // NOTE: We could have built this into the "primary" style using
     //   the `role` attribute of `ButtonStyle.Configuration`
     static var destructive: Self {
-        CapsuleButtonStyle(
+        RectButtonStyle(
             enabledColorScheme: .init(
                 foregroundColor: .destructiveEnabledForeground,
                 backgroundColor: .destructiveEnabledBackground,
@@ -169,7 +169,7 @@ extension ButtonStyle where Self == CapsuleButtonStyle {
 
 
 
-struct CapsuleButtonStyle_Previews: PreviewProvider {
+struct RectButtonStyle_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             VStack {
@@ -197,6 +197,7 @@ struct CapsuleButtonStyle_Previews: PreviewProvider {
             .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(uiColor: .systemGray2))
+        .background(Color(.darkGray))
+        //.background(Color(uiColor: .systemGray2))
     }
 }

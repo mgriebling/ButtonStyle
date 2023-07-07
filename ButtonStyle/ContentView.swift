@@ -42,7 +42,8 @@ struct ContentView: View {
                 )
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(uiColor: .systemGray2))
+        .background(Color(.systemGray)) 
+        //.background(Color(uiColor: .systemGray2))
     }
 }
 

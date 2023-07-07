@@ -52,6 +52,6 @@ struct CustomButton_Previews: PreviewProvider {
             CustomButton("Custom") {}
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(uiColor: .systemGray2))
+        .background(Color(.systemGray))  //uiColor: .systemGray2))
     }
 }
